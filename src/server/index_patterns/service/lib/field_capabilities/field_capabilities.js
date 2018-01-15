@@ -23,7 +23,6 @@ export async function getFieldCapabilities(callCluster, indices = [], metaFields
 
   const allFieldsUnsorted = Object
     .keys(fieldsFromFieldCapsByName)
-    .filter(name => !name.startsWith('_'))
     .concat(metaFields)
     .reduce(concatIfUniq, [])
     .map(name => defaults({}, fieldsFromFieldCapsByName[name], {
